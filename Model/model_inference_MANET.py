@@ -18,19 +18,20 @@ import matplotlib.pyplot as plt
 # test_ds = SegmentationDataset(data_path=test_dir)
 
 #RGB 
-test_dir = '/data/data/yearlyImage/Val'
-test_ds = SegmentationDatasetRGB(data_path=test_dir)
+test_dir = '/data/data/Fusion/Val'
+# test_ds = SegmentationDatasetTwoMonths(data_path=test_dir)
+test_ds = SegmentationDatasetFusion(data_path=test_dir)
 
-test_dataloader = DataLoader(test_ds, batch_size=1, shuffle=True)
+test_dataloader = DataLoader(test_ds, batch_size=1, shuffle=False)
 
 # %% Set device
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 #%% Model setup
 model = smp.MAnet(
-    encoder_name="resnext101_32x16d",
+    encoder_name="mit_b5",
     encoder_weights=None,
-    in_channels=3,
+    in_channels=21,
     classes=9,
     encoder_depth=5,
     activation='softmax'
@@ -41,7 +42,7 @@ model.to(DEVICE)
 # model_path = '/data/models/J+D/MANET/MAnet_epochs_200_crossentropy_state_dict.pth'
 # model_path = '/data/models/Seasonal/MANET/MAnet_epochs_200_crossentropy_state_dict.pth'
 # model_path = '/data/models/yearly_mean/MANET/MAnet_epochs_200_crossentropy_state_dict.pth'
-model_path = '/data/models/RGB/MANET/MAnet_epochs_200_crossentropy_state_dict.pth'
+model_path = '/data/models/Fusion/MANET_MIT/SAR/MAnet_MiT_epochs_200_crossentropy_state_dict.pth'
 #%% Load weights
 EPOCHS = 200
 
@@ -99,14 +100,14 @@ print(f"Mean F2 Score: {mean_f2}")
 print(f"Mean Accuracy: {mean_accuracy}")
 print(f"Mean Recall: {mean_recall}")
 
-# # Save the results to a text file
-# with open('summary.txt', 'w') as f:
-#     f.write(f"Class-wise IoUs: {class_iou}\n")
-#     f.write(f"Mean IoU: {mean_iou}\n")
-#     f.write(f"Mean F1 Score: {mean_f1}\n")
-#     f.write(f"Mean F2 Score: {mean_f2}\n")
-#     f.write(f"Mean Accuracy: {mean_accuracy}\n")
-#     f.write(f"Mean Recall: {mean_recall}\n")
+# Save the results to a text file
+with open('summary.txt', 'w') as f:
+    f.write(f"Class-wise IoUs: {class_iou}\n")
+    f.write(f"Mean IoU: {mean_iou}\n")
+    f.write(f"Mean F1 Score: {mean_f1}\n")
+    f.write(f"Mean F2 Score: {mean_f2}\n")
+    f.write(f"Mean Accuracy: {mean_accuracy}\n")
+    f.write(f"Mean Recall: {mean_recall}\n")
 
 #%% Confusion Matrix
 import numpy as np
@@ -116,7 +117,7 @@ from sklearn.metrics import confusion_matrix
 import pandas as pd
 
 
-Name = 'MANET'
+Name = 'MANET_mit\n Fused Data'
 
 # Compute confusion matrix
 conf_matrix = confusion_matrix(all_true_labels, all_pred_labels, labels=list(range(num_classes)))
