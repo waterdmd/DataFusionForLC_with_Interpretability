@@ -122,10 +122,10 @@ class SegmentationDatasetTwoMonths(Dataset):
         # Open the rasterio dataset
         with rio.open(image_path) as src:
             # Read the first 8 bands as the input image
-            image = src.read([1, 2, 3, 4, 5, 6, 7, 8,9,10,11,12,13,14,15,16])  # Adjust the band numbers if needed
+            image = src.read([1, 2, 3, 4, 5, 6, 7, 8,11,12,13,14,15,16, 17,18])  # Adjust the band numbers if needed
             image = np.nan_to_num(image, nan =0.0001)
             # Bands in rasterio are indexed starting from 1, so the 9th band is the mask
-            mask = src.read(17)
+            mask = src.read(22)
             
             # Move the channel axis to the last dimension for the image
             # image = np.moveaxis(image, 0, -1)
