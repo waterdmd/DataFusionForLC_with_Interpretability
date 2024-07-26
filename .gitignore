@@ -20,7 +20,7 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
-*.txt
+
 
 *.DS_Store
 __pycache__
