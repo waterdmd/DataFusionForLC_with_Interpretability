@@ -21,7 +21,6 @@ rad.json
 #Test results file
 TestResults.xml
 *.txt
-*.png
-*.pth
+
 *.DS_Store
 __pycache__
