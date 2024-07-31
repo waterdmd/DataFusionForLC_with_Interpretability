@@ -22,5 +22,7 @@ rad.json
 TestResults.xml
 *.txt
 
+*.json
+
 *.DS_Store
 __pycache__
