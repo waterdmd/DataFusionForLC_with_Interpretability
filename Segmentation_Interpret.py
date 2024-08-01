@@ -379,7 +379,7 @@ print("Model loaded successfully")
 # Load the dataset
 test_dir = '/data/data/Fusion/Val'
 test_ds = SegmentationDatasetFusion(data_path=test_dir)
-test_dataloader = DataLoader(test_ds, batch_size=1, shuffle=False)
+test_dataloader = DataLoader(test_ds, batch_size=1, shuffle=True)
 
 # Create output directory for saving results
 output_dir = 'gradcam_results'
@@ -421,13 +421,13 @@ def find_last_conv_layer(model):
 target_layer_name, target_layer = find_last_conv_layer(model)
 print(f"Using target layer: {target_layer_name}")
 
-CLASS = 7  # Change this to the desired class for analysis
+CLASS = 6  # Change this to the desired class for analysis
 class_name = index_to_class[CLASS]  # Get the class name for the plot title
 
 # Process the first 100 images in the dataloader that contain the specified class in the ground truth
 valid_image_count = 0
 for idx, sample in enumerate(test_dataloader):
-    if valid_image_count >= 100:
+    if valid_image_count >= 501:
         break
     image_test, mask = sample['image'], sample['mask']
     unique_classes_gt = torch.unique(mask).cpu().numpy()
@@ -436,7 +436,7 @@ for idx, sample in enumerate(test_dataloader):
         continue
 
     valid_image_count += 1
-    print(f"Processing valid image {valid_image_count}/100 (dataset index {idx + 1})")
+    print(f"Processing valid image {valid_image_count}/500 (dataset index {idx + 1})")
 
     for band in range(21):
         # Create a copy of the image with only the current band retained
@@ -492,6 +492,7 @@ sns.pointplot(
 # Improve the legend and customize the plot
 ax.set_yticklabels([f'Band {i+1}' for i in range(21)], fontsize=14)
 ax.set_ylabel('', fontsize=14)
+ax.set_xlim(-1, 1)  # Set the limits of the x-axis here
 ax.xaxis.set_tick_params(labelsize=14)
 ax.yaxis.set_tick_params(labelsize=14)
 ax.spines['top'].set_visible(False)
