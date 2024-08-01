@@ -81,7 +81,7 @@ class_name = index_to_class[CLASS]  # Get the class name for the plot title
 # Process the first 100 images in the dataloader that contain the specified class in the ground truth
 valid_image_count = 0
 for idx, sample in enumerate(test_dataloader):
-    if valid_image_count >= 100:
+    if valid_image_count >= 500:
         break
     image_test, mask = sample['image'], sample['mask']
     unique_classes_gt = torch.unique(mask).cpu().numpy()
@@ -90,7 +90,7 @@ for idx, sample in enumerate(test_dataloader):
         continue
 
     valid_image_count += 1
-    print(f"Processing valid image {valid_image_count}/100 (dataset index {idx + 1})")
+    print(f"Processing valid image {valid_image_count}/500 (dataset index {idx + 1})")
 
     for band in range(21):
         # Create a copy of the image with only the current band retained
