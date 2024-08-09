@@ -758,7 +758,7 @@ plt.close()
 plt.imshow(bright_image)
 plt.axis('off')
 plt.title('Brightened Image')
-plt.savefig(os.path.join(output_dir, 'brightened_image.png'), bbox_inches='tight', pad_inches=0)
+plt.savefig(os.path.join(output_dir, 'Input_image.png'), bbox_inches='tight', pad_inches=0)
 plt.close()
 
 # Visualize the ground truth segmentation and save the plot
@@ -768,7 +768,7 @@ cbar = plt.colorbar(ticks=np.arange(len(labels)))
 cbar.ax.set_yticklabels(labels)
 plt.axis('off')
 plt.title('Ground Truth Segmentation')
-plt.savefig(os.path.join(output_dir, 'ground_truth_segmentation.png'), bbox_inches='tight', pad_inches=0)
+plt.savefig(os.path.join(output_dir, 'ground_truth_CDL.png'), bbox_inches='tight', pad_inches=0)
 plt.close()
 
 # Visualize the predicted segmentation output with color bar and save the plot
