@@ -126,36 +126,7 @@ for band, values in aggregated_gradcam_values.items():
         data.append((f'Band {band+1}', value))
 df = pd.DataFrame(data, columns=['Band', 'GradCAM Value'])
 
-# Plot the data
-# sns.set_theme(style="whitegrid")
-# f, ax = plt.subplots(figsize=(4, 8))
-# sns.despine(bottom=True, left=True)
-
-# # Show each observation with a scatterplot, with matching colors
-# palette = sns.color_palette("viridis", n_colors=len(df['Band'].unique()))
-# sns.violinplot(
-#     data=df, x="GradCAM Value", y="Band", palette=palette, inner='quart',fill = False, scale='width', alpha=.6, zorder=1, legend=False,
-# )
-
-# # Show the conditional means
-# sns.pointplot(
-#     data=df, x="GradCAM Value", y="Band", palette=["black"] * len(palette), errorbar=None,
-#     markers="d", markersize=4, linestyle="none",
-# )
-
-# # Improve the legend and customize the plot
-# ax.set_yticklabels([f'Band {i+1}' for i in range(21)], fontsize=14)
-# ax.set_ylabel('', fontsize=14)
-# ax.xaxis.set_tick_params(labelsize=14)
-# ax.yaxis.set_tick_params(labelsize=14)
-# ax.spines['top'].set_visible(False)
-# ax.spines['right'].set_visible(False)
-# plt.title(f'Impact of Each Band on GradCAM of Class {CLASS}: ({class_name})', fontsize=16)
-# plt.xlabel('GradCAM Value', fontsize=14)
-# plt.savefig(os.path.join(output_dir, f'impact_of_each_band_{CLASS}.png'), bbox_inches='tight', pad_inches=0)
-# plt.close()
-
-# print("GradCAM analysis for all bands completed and saved.")
+# Create output directory for saving plots
 import matplotlib 
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -178,15 +149,7 @@ violin_parts = sns.violinplot(
     data=df, x="GradCAM Value", y="Band", palette=palette, inner='quart', fill=True, scale='width', alpha=.6, zorder=1, legend=False, split=True
 )
 
-# # Customize the violin plot to only show the top side
-# for violin in ax.collections:
-#     if isinstance(violin, matplotlib.collections.PolyCollection):
-#         path = violin.get_paths()[0]
-#         vertices = path.vertices
-#         mean_y = np.mean(vertices[:, 1])
-#         vertices[vertices[:, 1] < mean_y, 1] = mean_y
-
-# Show the conditional means
+# Overlay the scatterplot
 sns.pointplot(
     data=df, x="GradCAM Value", y="Band", palette=["black"] * len(palette), errorbar=None,
     markers="d", markersize=4, linestyle="none",
