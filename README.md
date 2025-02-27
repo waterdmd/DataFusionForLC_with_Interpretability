@@ -34,7 +34,7 @@ To perform spectral-based GradCAM analysis, run `Spectral_GradCAM.py`. This scri
 ### Occlusion-Based Integrated Grad-CAM
 
 Running `Occ_INTEG_Grad.py` plots the occlusion, Integrated Gradients, and GradCAM values for a single input instance, providing a detailed visualization of how each method highlights important regions of the input image.
-   ![Results and Analysis](Figures/Grad_Occ_integ.png)\
+   ![Results and Analysis](Figures/Grad_Occ_integ.png)
 
 ## Acknowledgments
 
@@ -42,7 +42,7 @@ This work builds upon and extends existing research and codebases from various o
 
 - [segmentation_models.pytorch](https://github.com/qubvel-org/segmentation_models.pytorch)
 - [SegFormer](https://github.com/NVlabs/SegFormer)
-- [HRNet-Semantic-Segmentation](https://github.com/HRNet/HRNet-Semantic-Segmentation)
+
 
 We thank the respective authors and maintainers for their contributions to the open-source community.
 
