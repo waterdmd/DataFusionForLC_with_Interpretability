@@ -11,3 +11,16 @@ If you use this code, please cite:\
 - **modeling_MANET.py**: Script for training the MANet model on the fused data.
 - **model_inference_MANET.py**: Script for validating/testing the trained MANet model.
 - **Customized_mixed_vision_transformer**: Contains the customized MiT-B5 architecture adapted for this project.
+### Interclass GradCAM
+
+1. **Computation**  
+   After training the model, run `Interclass_GadCAM.py` to generate GradCAM-based interpretability maps for all classes in the dataset. The script compiles these maps into a dictionary called `all_gradcam_analysis` and saves it in the `gradcam_results` subdirectory in JSON format.
+
+2. **Visualization**  
+   To visualize the computed interclass GradCAM maps, run `plot_InterClass_GradCAM.py`. This module reads the JSON data from the `gradcam_results` directory and produces the corresponding plots.
+
+---
+
+### Spectral GradCAM
+
+To perform spectral-based GradCAM analysis, run `Spectral_GradCAM.py`. This script processes the trained model’s outputs and saves the resulting GradCAM maps in the `gradcam_results` subdirectory.
