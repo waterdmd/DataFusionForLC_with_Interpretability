@@ -19,7 +19,9 @@ If you use this code, please cite:\
    After training the model, run `Interclass_GadCAM.py` to generate GradCAM-based interpretability maps for all classes in the dataset. The script compiles these maps into a dictionary called `all_gradcam_analysis` and saves it in the `gradcam_results` subdirectory in JSON format.
 
 2. **Visualization**  
-   To visualize the computed interclass GradCAM maps, run `plot_InterClass_GradCAM.py`. This module reads the JSON data from the `gradcam_results` directory and produces the corresponding plots.
+   To visualize the computed interclass GradCAM maps, run `plot_InterClass_GradCAM.py`. This module reads the JSON data from the `gradcam_results` directory and produces the corresponding plots.\
+   ![Results and Analysis](Figures/bar_plot_class_0.png)
+**Figure 2.** InterClass GradCAM for class 0.
 
 ---
 
