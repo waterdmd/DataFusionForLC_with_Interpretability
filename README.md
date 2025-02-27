@@ -11,7 +11,7 @@ If you use this code, please cite:\
 - **modeling_MANET.py**: Script for training the MANet model on the fused data.
 - **model_inference_MANET.py**: Script for validating/testing the trained MANet model.
 - **Customized_mixed_vision_transformer**: Contains the customized MiT-B5 architecture adapted for this project.
-  ![Model Architecture](Figures/MANET-B5.png)
+  ![Model Architecture](Figures/MANET - B5.png)
 **Figure 1.** MANET-MiTB5.
 ### Interclass GradCAM
 
