@@ -30,3 +30,8 @@ If you use this code, please cite:\
 To perform spectral-based GradCAM analysis, run `Spectral_GradCAM.py`. This script processes the trained model’s outputs and saves the resulting plots in the `gradcam_results` subdirectory.\
    ![Results and Analysis](Figures/impact_of_each_band_0.png)\
 **Figure 3.** Spectral GradCAM for band 0.
+
+### Occlusion-Based Integrated Grad-CAM
+
+Running `Occ_INTEG_Grad.py` plots the occlusion, Integrated Gradients, and GradCAM values for a single input instance, providing a detailed visualization of how each method highlights important regions of the input image.
+   ![Results and Analysis](Figures/Grad_Occ_integ.png)\
