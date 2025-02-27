@@ -7,4 +7,7 @@ This study introduces two novel explainable AI frameworks, Interclass-Grad-CAM a
 If you use this code, please cite:\
 **"S. Ebrahimi and S. Kumar, "What Helps to Detect What? Explainable AI and Multisensor Fusion for Semantic Segmentation of Simultaneous Crop and Land Cover Land Use Delineation," in IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, vol. 18, pp. 5423-5444, 2025, doi: 10.1109/JSTARS.2025.3532829."**
 
-
+### Model
+- **modeling_MANET.py**: Script for training the MANet model on the fused data.
+- **model_inference_MANET.py**: Script for validating/testing the trained MANet model.
+- **Customized_mixed_vision_transformer**: Contains the customized MiT-B5 architecture adapted for this project.
