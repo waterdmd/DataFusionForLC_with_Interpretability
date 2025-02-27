@@ -23,4 +23,4 @@ If you use this code, please cite:\
 
 ### Spectral GradCAM
 
-To perform spectral-based GradCAM analysis, run `Spectral_GradCAM.py`. This script processes the trained model’s outputs and saves the resulting GradCAM maps in the `gradcam_results` subdirectory.
+To perform spectral-based GradCAM analysis, run `Spectral_GradCAM.py`. This script processes the trained model’s outputs and saves the resulting plots in the `gradcam_results` subdirectory.
