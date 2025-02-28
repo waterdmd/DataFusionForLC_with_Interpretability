@@ -37,7 +37,7 @@ Running `Occ_INTEG_Grad.py` plots the occlusion, Integrated Gradients, and GradC
    ![Results and Analysis](Figures/Grad_Occ_integ.png)
 
 ## Acknowledgments
-
+This reasearch was supported  by the [NASA Land-Cover and Land-Use Change (LCLUC) Program](https://lcluc.umd.edu/).
 This work builds upon and extends existing research and codebases from various open-source projects. We gratefully acknowledge the following repositories:
 
 - [segmentation_models.pytorch](https://github.com/qubvel-org/segmentation_models.pytorch)
